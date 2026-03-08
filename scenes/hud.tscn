@@ -1,0 +1,116 @@
+[gd_scene load_steps=10 format=3 uid="uid://bcr86qlbhw0xi"]
+
+[ext_resource type="Script" path="res://scripts/hud.gd" id="1_3iffy"]
+[ext_resource type="FontFile" uid="uid://c0tuwx8ges06t" path="res://assets/font/Kenney Future.ttf" id="2_ctsws"]
+[ext_resource type="FontFile" uid="uid://brmpps55n58lo" path="res://assets/font/Kenney Future Narrow.ttf" id="3_dpwwd"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_mciw0"]
+font = ExtResource("2_ctsws")
+font_size = 36
+outline_size = 5
+outline_color = Color(0.0797713, 0.223017, 0.15665, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_n7scr"]
+bg_color = Color(0.0587571, 0.419654, 0.423235, 1)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(0.521469, 0.104956, 0.168254, 1)
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+corner_radius_bottom_right = 6
+corner_radius_bottom_left = 6
+corner_detail = 17
+expand_margin_left = 4.0
+expand_margin_top = 4.0
+expand_margin_right = 4.0
+expand_margin_bottom = 4.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4l80p"]
+bg_color = Color(0.521569, 0.105882, 0.168627, 1)
+border_width_bottom = 10
+border_color = Color(0.693342, 0.160891, 0.238642, 1)
+border_blend = true
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+corner_detail = 4
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8ocej"]
+bg_color = Color(1, 1, 1, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 4
+border_color = Color(0.0352941, 0.462745, 0.458824, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+expand_margin_left = 2.0
+expand_margin_top = 2.0
+expand_margin_right = 2.0
+expand_margin_bottom = 2.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ugfpa"]
+bg_color = Color(0.0688775, 0.318171, 0.313864, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
+[sub_resource type="LabelSettings" id="LabelSettings_ipq8s"]
+font = ExtResource("3_dpwwd")
+font_color = Color(0, 0, 0, 1)
+
+[node name="HUD" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_3iffy")
+
+[node name="Score" type="Label" parent="."]
+layout_mode = 0
+offset_left = 16.0
+offset_top = 16.0
+offset_right = 376.0
+offset_bottom = 88.0
+text = "SCORE: 0"
+label_settings = SubResource("LabelSettings_mciw0")
+
+[node name="LifeProgressBar" type="ProgressBar" parent="."]
+layout_mode = 0
+offset_left = 18.0
+offset_top = 62.0
+offset_right = 286.0
+offset_bottom = 94.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_ctsws")
+theme_override_styles/background = SubResource("StyleBoxFlat_n7scr")
+theme_override_styles/fill = SubResource("StyleBoxFlat_4l80p")
+step = 1.0
+value = 100.0
+rounded = true
+
+[node name="WeaponProgressBar" type="ProgressBar" parent="."]
+layout_mode = 0
+offset_left = 18.0
+offset_top = 106.0
+offset_right = 286.0
+offset_bottom = 134.0
+theme_override_colors/font_color = Color(0, 0, 0, 0)
+theme_override_fonts/font = ExtResource("2_ctsws")
+theme_override_styles/background = SubResource("StyleBoxFlat_8ocej")
+theme_override_styles/fill = SubResource("StyleBoxFlat_ugfpa")
+max_value = 15.0
+rounded = true
+
+[node name="Label" type="Label" parent="WeaponProgressBar"]
+layout_mode = 0
+offset_left = 94.0
+offset_top = 4.0
+offset_right = 189.0
+offset_bottom = 27.0
+text = "PowerUp"
+label_settings = SubResource("LabelSettings_ipq8s")

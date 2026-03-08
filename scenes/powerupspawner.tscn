@@ -1,0 +1,18 @@
+[gd_scene load_steps=2 format=3 uid="uid://cnxrnm3bugkbq"]
+
+[ext_resource type="Script" path="res://scripts/powerupspawner.gd" id="1_8wu1t"]
+
+[node name="Powerupspawner" type="Node2D"]
+script = ExtResource("1_8wu1t")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 10.0
+autostart = true
+
+[node name="SpawnPOS_Top" type="Marker2D" parent="."]
+position = Vector2(1211, 31)
+
+[node name="SpawnPOS_Bottom" type="Marker2D" parent="."]
+position = Vector2(1231, 604)
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
